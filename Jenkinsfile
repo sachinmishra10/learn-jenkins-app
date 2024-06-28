@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment{
+        Test_File_Name= 'build/index.html'
+    }
     stages {
         stage('Build') {
             agent{
@@ -21,6 +23,16 @@ pipeline {
 
                 echo 'File List After Build'
                 ls -la
+
+                '''
+            }
+        }
+        stage('Test'){
+            steps{
+                sh '''
+                echo 'Testing....'
+                test -f $Test_File_Name
+                npm  test a
 
                 '''
             }
