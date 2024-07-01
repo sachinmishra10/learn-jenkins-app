@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
         Test_File_Name= 'build/index.html'
+        Test_File_JUnit_Summery='test-results/junit.xml'
     }
     stages {
         stage('Build') {
@@ -42,6 +43,11 @@ pipeline {
 
                 '''
             }
+        }
+    }
+    post{
+        always{
+            junit 'test-results/junit.xml'
         }
     }
 }
