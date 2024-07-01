@@ -54,8 +54,8 @@ pipeline {
             steps{
                 sh '''
                 echo 'E2E Tetsing....'
-                npm install -g serve
-                npm -s build
+                npm install  serve
+                node_modules/.bin/serve -s build
                 npx playwright test
 
                 '''
