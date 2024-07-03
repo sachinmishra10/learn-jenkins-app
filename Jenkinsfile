@@ -5,7 +5,7 @@ pipeline {
         Test_File_JUnit_Summery='test-results/junit.xml'
     }
     stages {
-        // stage('Build') {
+        /* stage('Build') {
         //     agent{
         //         docker{
         //             image 'node:18-alpine'
@@ -27,7 +27,7 @@ pipeline {
 
         //         '''
         //     }
-        // }
+        // }*/
      stages('Tests..'){
                parallel{
                      stage('Test'){
